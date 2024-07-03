@@ -1,0 +1,375 @@
+@import url('./vendor/normalize.css');
+@import url('./vendor/fonts.css');
+@import url('./blocks/page/page.css');
+@import url('./blocks/header/header.css');
+@import url('./blocks/content/content.css');
+@import url('./blocks/footer/footer.css');
+@import url('./blocks/profile/profile.css');
+@import url('./blocks/places/places.css');
+@import url('./blocks/card/card.css');
+@import url('./blocks/popup/popup.css');
+@import url('./blocks/popup/_is-animated/popup_is-animated.css');
+@import url('./blocks/popup/_is-opened/popup_is-opened.css');
+@import url('./blocks/login/login.css');
+
+.heading {
+    background-color: #ffc107;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.container-inform-anket {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Шапка */
+.header-name {
+    display: flex;
+    gap: clamp(0.938rem, -0.625rem + 2.778vi, 1.875rem); /* от 15px до 30px на 900 на 1440 */
+}
+
+.header-logo-link {
+    width: 80px;
+}
+
+.header-logo-image {
+    width: 80px;
+    filter: drop-shadow(3px 5px 5px #000);
+    position: absolute;
+    top: 3px;
+    left: 8px;
+}
+
+.header-name-text {
+    max-width: 600px;
+    max-height: 50px;
+    color: #fff;
+    font-size: clamp(0.563rem, 0.462rem + 0.459vi, 0.875rem); /* от 9px до 14px на 350 на 1440 */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.header-name-text-content {
+    font-weight: 600;
+}
+
+/* Меню шапки */
+.header-menu-list {
+    display: flex;
+    list-style-type: none;
+}
+
+.header-menu-list-item {
+    padding: clamp(0.25rem, -0.167rem + 0.741vi, 0.5rem); /* от 4px до 8px на 900 на 1440 */
+    font-size: clamp(0.563rem, 0.042rem + 0.926vi, 0.875rem); /* от 9px до 14px на 900 на 1440 */
+}
+
+.header-menu-list-item-link {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+.header-menu-list-item-accent {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    border-radius: 0.25rem;
+    color: #000;
+    background-color: #ffc107;
+    font-size: 75%;
+    font-weight: 600;
+    vertical-align: baseline;
+}
+
+.header-menu-list-item-link::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.menu-icon-mobile {
+    display: none;
+    width: 15px;
+    height: 15px;
+}
+
+/* Кнопка */
+.button-sign-profile {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: clamp(0.563rem, 0.042rem + 0.926vi, 0.875rem); /* от 9px до 14px на 900 на 1440 */
+}
+
+.button-sign-image {
+    width: 14px;
+    height: 14px;
+}
+
+/* Заголовок страницы */
+.header-page-title {
+    height: 27px;
+    border-top: 5px solid #ffc107;
+    background-color: #fff3cd;
+}
+
+.page-title-text {
+    display: inline-block;
+    padding: 5px 50px 5px 100px;
+    background-color: #ffc107;
+    border-radius: 0 0 20px 0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Стили "к списку форм" */
+.about-anket {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.heading-link {
+    display: flex;
+    align-items: end;
+    gap: 5px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.heading-image {
+    width: 15px;
+    height: 15px;
+}
+
+.about-anket-inform,
+.anket-blocks-inform,
+.container-button-export {
+    background-color: #fff;
+}
+
+.anket-inform-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.anket-inform-table-tr,
+.anket-inform-table-th {
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: inherit;
+}
+
+.anket-inform-table-tr {
+    height: 25px;
+}
+
+.anket-inform-table-tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.container-button-sign-anket {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.container-button-sign-anket__text {
+    font-size: 10px;
+    font-style: italic;
+}
+
+.button-sign-anket {
+    max-width: 75px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #dc3545;
+    border-radius: 3px;
+}
+
+/* Стили к "разделу" */
+.anket-blocks {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.anket-blocks-list-item {
+    padding: 5px 15px;
+    list-style-position: inside;
+    font-size: 14px;
+}
+
+.anket-blocks-list-item-active {
+    color: #fff;
+    background-color: #007bff;
+}
+
+
+/* Стили для кнопки "экспорт" */
+.container-button-export {
+    padding: 10px 15px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.button-export {
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #28a745;
+    border-radius: 3px;
+    border-color: transparent;
+}
+
+/* Стили для правой части */
+.container-anket-form {
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.anket-form__title {
+    text-align: center;
+}
+
+.container-anket-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
+    gap: 20px;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    padding: 20px 15px;
+}
+
+.form-anket {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-input {
+    font-size: 14px;
+    padding: 3px;
+    max-width: 300px;
+}
+
+.container-buttons {
+    display: flex;
+    gap: 20px;
+    background-color: #fff;
+}
+
+.button {
+    padding: 10px 20px;
+    border: transparent;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.anket-form-button-save {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.anket-form-button-block {
+    color: #fff;
+    background-color: #dc3545;
+}
+
+.anket-form-button-reset {
+    background-color: #ffc107;
+}
+
+/* Подвал */
+.footer-logo {
+    width: 64px;
+    height: 68px;
+}
+
+.container-footer-inform {
+    font-size: clamp(0.563rem, 0.462rem + 0.459vi, 0.875rem); /* от 9px до 14px на 350 на 1440 */
+}
+
+.footer-inform-title {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/* Страница всех форм */
+
+.buttons-container {
+    display: flex;
+    gap: 8px;
+    margin-block: 0.5rem;
+}
+
+
+@media (max-width: 1210px) {
+    .header-menu {
+        display: flex;
+        justify-content: end;
+        width: clamp(1.875rem, -27.795rem + 69.811vi, 25rem); /* от 30px до 400px на 680 на 1210 */
+    }
+
+    .header-menu-list {
+        display: none;
+    }
+
+    .menu-icon-mobile {
+        display: block;
+    }
+}
+
+@media (max-width: 900px) {
+    .content {
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+    }
+
+    .container-inform-anket {
+        flex-direction: row;
+    }
+
+    .about-anket {
+        flex-grow: 1;
+    }
+
+    .anket-blocks {
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 680px) {
+    .header-name-text {
+        display: none;
+    }
+
+    .header-menu {
+        width: clamp(11.25rem, -6.702rem + 82.067vi, 28.125rem); /* от 180px до 450px на 350 на 679 */
+    }
+}
+
+@media (max-width: 550px) {
+    .container-inform-anket {
+        flex-direction: column;
+    }
+
+    .container-buttons {
+        flex-direction: column;
+    }
+}
