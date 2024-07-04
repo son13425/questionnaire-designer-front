@@ -1,0 +1,11 @@
+{
+  "name": "eform",
+  "version": "1.0.0",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
+  "scripts": {
+    "predeploy": "cd instead npm run build",
+    "deploy": "gh-pages -d dist"
+  }
+}
