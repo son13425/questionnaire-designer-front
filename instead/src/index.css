@@ -72,6 +72,12 @@
 .header-menu-list-item-link {
     color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
+    cursor: pointer;
+}
+
+.header-menu-list-item-link:hover,
+.header-menu-list-item-link:focus {
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .header-menu-list-item-accent {
@@ -97,6 +103,10 @@
     color: rgba(255, 255, 255, 0.5);
 }
 
+.header-menu-list-item:hover .header-menu-list-item-link::after {
+    color: rgba(255, 255, 255, 0.75);
+}
+
 .menu-icon-mobile {
     display: none;
     width: 15px;
@@ -111,6 +121,13 @@
     border-radius: 5px;
     padding: 4px 8px;
     font-size: clamp(0.563rem, 0.042rem + 0.926vi, 0.875rem); /* от 9px до 14px на 900 на 1440 */
+    cursor: pointer;
+}
+
+.button-sign-profile:hover {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
 }
 
 .button-sign-image {
@@ -141,12 +158,21 @@
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
+.about-anket-title {
+    display: flex;
+    justify-content: space-between;
+}
+
 .heading-link {
     display: flex;
     align-items: end;
     gap: 5px;
     text-decoration: none;
     color: inherit;
+}
+
+.heading-link:hover .heading-title {
+    text-decoration: underline;
 }
 
 .heading-image {
@@ -168,11 +194,24 @@
     font-weight: 400;
 }
 
+.about-anket-inform-author {
+    border-collapse: collapse;
+    border-top: 1px solid #ffc107;
+    border-bottom: 1px solid #ffc107;
+}
+
 .anket-inform-table-tr,
-.anket-inform-table-th {
+.anket-inform-table-td {
     font-family: inherit;
-    font-size: 10px;
+    font-size: clamp(0.75rem, 0.69rem + 0.275vi, 0.938rem); /* от 12px до 15px на 350 на 1440 */
     font-weight: inherit;
+    border-collapse: collapse;
+}
+
+.anket-inform-table-td,
+.anket-inform-table-th-title {
+    text-align: left;
+    padding: 5px;
 }
 
 .anket-inform-table-tr {
@@ -188,10 +227,31 @@
     flex-direction: column;
     gap: 5px;
     padding: 10px;
+    background-color: #fdfaf1;
+    color: #6c757d;
+}
+
+.anket-inform-table-author-about {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.anket-inform-table-author-about-decor::after {
+    display: inline-block;
+    /* margin-left: 0.255em; */
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
 }
 
 .container-button-sign-anket__text {
-    font-size: 10px;
+    font-size: clamp(0.688rem, 0.627rem + 0.275vi, 0.875rem); /* от 11px до 14px на 350 на 1440 */
     font-style: italic;
 }
 
@@ -202,6 +262,12 @@
     color: #fff;
     background-color: #dc3545;
     border-radius: 3px;
+    cursor: pointer;
+}
+
+.button-sign-anket:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
 }
 
 /* Стили к "разделу" */
@@ -209,10 +275,42 @@
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
+.button-color-container {
+    padding: 10px 20px;
+    display: flex;
+    gap: 20px;
+    background-color: #eae7e7;
+}
+
+.button-color-container:active {
+    color: #212529;
+    background-color: #eae7e7;
+}
+
+
+.button-color-decor::after {
+    display: inline-block;
+    /* margin-left: 0.255em; */
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.button-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #007bff;
+}
+
 .anket-blocks-list-item {
     padding: 5px 15px;
     list-style-position: inside;
     font-size: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .anket-blocks-list-item-active {
@@ -220,6 +318,10 @@
     background-color: #007bff;
 }
 
+.anket-blocks-list-item:active {
+    color: #212529;
+    background-color: #e9ecef;
+}
 
 /* Стили для кнопки "экспорт" */
 .container-button-export {
@@ -233,13 +335,55 @@
     color: #fff;
     background-color: #28a745;
     border-radius: 3px;
-    border-color: transparent;
+    /* border-color: transparent; */
+    border: none;
+    cursor: pointer;
+}
+
+.button-export:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
 }
 
 /* Стили для правой части */
 .container-anket-form {
     font-family: 'Inter', Arial, sans-serif;
 }
+
+.anket-form-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 8px;
+}
+
+.close-panel-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 31px;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.close-panel-link:hover {
+    color: #212529;
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+
+/* .close-panel-icon {
+    display: block;
+    width: 8px;
+    height: 14px;
+    object-fit: cover;
+    object-position: center;
+} */
 
 .anket-form__title {
     text-align: center;
@@ -298,6 +442,7 @@
 .footer-logo {
     width: 64px;
     height: 68px;
+    filter: drop-shadow(0px 0px 5px #fff);
 }
 
 .container-footer-inform {
@@ -333,6 +478,10 @@
     .menu-icon-mobile {
         display: block;
     }
+
+    .content {
+        grid-template-columns: 40% 1fr;
+    }
 }
 
 @media (max-width: 900px) {
@@ -341,9 +490,9 @@
         grid-template-rows: max-content 1fr;
     }
 
-    .container-inform-anket {
+    /* .container-inform-anket {
         flex-direction: row;
-    }
+    } */
 
     .about-anket {
         flex-grow: 1;
