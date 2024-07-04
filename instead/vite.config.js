@@ -3,6 +3,7 @@ import { resolve } from 'path'
 
 
 export default {
+    base: '/questionnaire-designer-front/',
     plugins: [
         Inspect()
     ],
