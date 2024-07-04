@@ -1,5 +1,5 @@
 export default {
-    // base: '/questionnaire-designer-front/',
+    base: '/questionnaire-designer-front/',
     build: {
         rollupOptions: {
             input: {
