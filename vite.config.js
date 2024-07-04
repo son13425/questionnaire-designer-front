@@ -3,8 +3,8 @@ export default {
     build: {
         rollupOptions: {
             input: {
-                main: '/index.html',
-                form: '/src/form/index.html'
+                main: './index.html',
+                form: './src/form/index.html'
             }
         }
     }
