@@ -15,3 +15,10 @@ document.querySelector('#back1').src = backIcon;
 document.querySelector('#list-icon1').src = listIcon;
 document.querySelector('#back2').src = backIcon;
 document.querySelector('#list-icon2').src = listIcon;
+
+const linkAuthor = document.querySelector('anket-inform-table-author-about');
+const aboutAuthor = document.querySelector('.about-anket-inform-author');
+
+linkAuthor.addEventListener('click', function () {
+    aboutAuthor.style.removeProperty('display')
+})

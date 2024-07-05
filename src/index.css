@@ -12,6 +12,16 @@
 @import url('./blocks/popup/_is-opened/popup_is-opened.css');
 @import url('./blocks/login/login.css');
 
+hr {
+    margin-block: 16px;
+    /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
+    /* height: 1px; */
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 .heading {
     background-color: #ffc107;
     padding: 10px;
@@ -198,7 +208,9 @@
     border-collapse: collapse;
     border-top: 1px solid #ffc107;
     border-bottom: 1px solid #ffc107;
+    /* display: none; */
 }
+
 
 .anket-inform-table-tr,
 .anket-inform-table-td {
@@ -311,6 +323,7 @@
     list-style-position: inside;
     font-size: 14px;
     border: 1px solid rgba(0, 0, 0, 0.125);
+    position: relative;
 }
 
 .anket-blocks-list-item-active {
@@ -321,6 +334,22 @@
 .anket-blocks-list-item:active {
     color: #212529;
     background-color: #e9ecef;
+}
+
+.anket-blocks-list-item-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.anket-blocks-list-item-decor {
+    width: 34px;
+    border-radius: 3px;
+    background-color: #fff;
+    text-align: center;
+    padding-block: 2px;
+    position: absolute;
+    right: 20px;
+    top: 10%;
 }
 
 /* Стили для кнопки "экспорт" */
@@ -376,15 +405,6 @@
     border-color: #d39e00;
 }
 
-
-/* .close-panel-icon {
-    display: block;
-    width: 8px;
-    height: 14px;
-    object-fit: cover;
-    object-position: center;
-} */
-
 .anket-form__title {
     text-align: center;
 }
@@ -397,24 +417,114 @@
     background-color: #fff;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     padding: 20px 15px;
+    background-color: #fdfaf1;
 }
 
 .form-anket {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px; */
+    column-count: 2;
+    column-width: auto;
+    column-gap: 30px;
+    column-rule: 1px solid #ccc;
 }
 
 .form-input {
     font-size: 14px;
     padding: 3px;
-    max-width: 300px;
+    /* max-width: 285px;
+    min-width: 40%; */
+    width: 100%;
+    cursor: pointer;
+    border: transparent;
+    border-radius: 3px;
+    margin-bottom: 4px;
+}
+
+/* Стили формы */
+.form-anket-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-anket-label-button {
+    cursor: pointer;
+}
+
+.fieldset {
+    padding: 12px 24px;
+    border: transparent;
+    border-radius: 0.25rem;
+    margin-bottom: 16px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.fieldset-anket-1 {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.fieldset-anket-2,
+.fieldset-anket-3 {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.fieldset-anket-4 {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.fieldset-anket-5 {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.form-anket-label {
+    display: block;
+    margin-block: 8px;
+}
+
+.form-anket-label-accent {
+    font-weight: 550;
+}
+
+.container-input {
+    display: flex;
+    gap: 9px;
+    margin-block: 8px;
+}
+
+.form-input-select {
+    cursor: pointer;
+}
+
+.container-input-buttons {
+    display: flex;
+    gap: 9px;
+}
+
+.input-button-comment,
+.input-button-history {
+    background-color: transparent;
+    border: transparent;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.container-input-buttons:hover .input-button-history {
+    opacity: 1;
+}
+
+.container-input-buttons:hover .input-button-comment {
+    opacity: 1;
 }
 
 .container-buttons {
     display: flex;
     gap: 20px;
-    background-color: #fff;
 }
 
 .button {
@@ -429,13 +539,26 @@
     background-color: #007bff;
 }
 
+.anket-form-button-save:hover {
+    background-color: #0069d9;
+
+}
+
 .anket-form-button-block {
     color: #fff;
     background-color: #dc3545;
 }
 
+.anket-form-button-block:hover {
+    background-color: #c82333;
+}
+
 .anket-form-button-reset {
     background-color: #ffc107;
+}
+
+.anket-form-button-reset:hover {
+    background-color: #e0a800;
 }
 
 /* Подвал */
@@ -454,7 +577,6 @@
     text-transform: uppercase;
 }
 
-
 /* Страница всех форм */
 
 .buttons-container {
@@ -463,7 +585,24 @@
     margin-block: 0.5rem;
 }
 
+/* Стили попапа комментария */
+.popup-comment {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
+.popup-header {
+
+}
+
+.popup-body {
+    height: 50vh;
+}
+
+
+
+/* Стили адаптации */
 @media (max-width: 1210px) {
     .header-menu {
         display: flex;
@@ -481,6 +620,10 @@
 
     .content {
         grid-template-columns: 40% 1fr;
+    }
+
+    .form-anket {
+        column-count: 1;
     }
 }
 
@@ -520,5 +663,11 @@
 
     .container-buttons {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 450px) {
+    .header-page-title {
+        height: 100%;
     }
 }
