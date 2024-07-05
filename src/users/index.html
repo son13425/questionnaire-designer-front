@@ -9,7 +9,7 @@
 </head>
 <body class="page">
 <div class="page__content">
-  <header class="header">
+  <header class="header header-reg">
       <div class="header-name">
         <a href="/" class="header-logo-link">
           <img
@@ -28,26 +28,23 @@
   <div class="users-header-page-title">
     <div class="users-page-title-text">Регистрация пользователя</div>
   </div>
-  <main class="content">
+  <main class="content-reg">
     <form class="form-reg">
-        <fieldset class="fieldset">
+        <fieldset class="fieldset-reg">
             <label for="organization" class="form-anket-label">Организация</label>
-            <div class="container-input border-input">
                 <select
                   id="organization"
                   name=""
-                  class="form-input form-input-select"
+                  class="form-input form-input-select input-reg"
                   value=""
                   placeholder="Учреждение...">
                 </select>
-            </div>
             <label for="surname" class="form-anket-label">Фамилия<span class="important-color">*</span></label>
-            <div class="container-input border-input">
                 <input
                     id="surname"
                     name=""
                     type="text"
-                    class="form-input form-input"
+                    class="form-input input-reg"
                     minlength="2"
                     maxlength="100"
                     pattern="^[a-zA-Zа-яА-я\-\s]+$"
@@ -55,14 +52,12 @@
                     value=""
                     placeholder="Фамилия"
                     required>
-            </div>
             <label for="name" class="form-anket-label">Имя<span class="important-color">*</span></label>
-            <div class="container-input border-input">
                 <input
                     id="name"
                     name=""
                     type="text"
-                    class="form-input form-input"
+                    class="form-input input-reg"
                     minlength="2"
                     maxlength="100"
                     pattern="^[a-zA-Zа-яА-я\-\s]+$"
@@ -70,38 +65,32 @@
                     value=""
                     placeholder="Имя"
                     required>
-            </div>
             <label for="patronymic" class="form-anket-label">Отчество</label>
-            <div class="container-input border-input">
                 <input
                     id="patronymic"
                     name=""
                     type="text"
-                    class="form-input form-input"
+                    class="form-input input-reg"
                     minlength="2"
                     maxlength="100"
                     pattern="^[a-zA-Zа-яА-я\-\s]+$"
                     data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
                     value=""
                     placeholder="Отчество">
-            </div>
             <label for="position" class="form-anket-label">Должность</label>
-            <div class="container-input border-input">
                 <select
                   id="position"
                   name=""
-                  class="form-input form-input-select"
+                  class="form-input form-input-select input-reg"
                   value=""
                   placeholder="Должность...">
                 </select>
-            </div>
             <label for="phone" class="form-anket-label">Телефон<span class="important-color">*</span></label>
-            <div class="container-input border-input">
                 <input
                     id="phone"
                     name=""
                     type="text"
-                    class="form-input form-input"
+                    class="form-input input-reg"
                     minlength="2"
                     maxlength="9"
                     pattern="^[0-9\s]+$"
@@ -109,45 +98,44 @@
                     value=""
                     placeholder="Телефон"
                     required>
-            </div>
             <label for="email" class="form-anket-label">Email<span class="important-color">*</span></label>
-            <div class="container-input border-input">
                 <input
                     id="email"
                     name=""
                     type="email"
-                    class="form-input form-input"
+                    class="form-input input-reg"
                     data-error-message=""
                     value=""
                     placeholder="email"
                     required>
-            </div>
             <label for="target" class="form-anket-label">Цель регистрации</label>
-            <div class="container-input border-input">
                 <select
                   id="target"
                   name=""
-                  class="form-input form-input-select"
+                  class="form-input form-input-select input-reg"
                   value=""
                   placeholder="Цель регистрации...">
                 </select>
-            </div>
         </fieldset>
-        <div class="container-buttons">
+        <div class="container-buttons container-buttons-reg">
             <button class="button anket-form-button-save">Отправить</button>
             <a href="" class="">[Инструкция по регистрации]</a>
             <a href="" class="">[Видеоинструкция по регистрации]</a>
         </div>
     </form>
   </main>
-  <footer class="footer page__section">
+  <footer class="footer footer-reg page__section">
     <img
       id="footer-logo"
       alt="Лого"
       class="footer-logo">
     <div class="container-footer-inform">
-      <p class="footer-inform-title">фгбу цпс фмба России</p>
-      <p class="footer-inform-text">Центр стратегического планирования и управления медико-биологическими рисками здоровью</p>
+      <p class="footer-inform-title">Национальный центр</p>
+      <p class="footer-inform-text footer-reg__text-company">Мониторинга биологических рисков</p>
+    </div>
+    <div class="footer-reg__contacts">
+      <p class="footer-reg__contacts-text">Телефон горячей линии:</p>
+      <p class="footer-reg__contacts-text">+7(499)755-00-91, +7(925)720-38-24 (дежурный, круглосуточный), +7(499)755-00-95, +7(925)720-26-15 (контакт-центр в будние дни с 09:30 до 18:00), &#9993; ncmbr@cspfmba.ru</p>
     </div>
   </footer>
 <script type="module" src="index.js"></script>

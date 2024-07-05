@@ -553,6 +553,7 @@ hr {
     border: transparent;
     border-radius: 5px;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .anket-form-button-save {
