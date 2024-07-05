@@ -1,5 +1,6 @@
 // Импорт стилей
 import '/src/index.css';
+
 // Импорт картинок
 import footerLogo from '/src/images/ias-logo-3.png';
 import headerLogo from '/src/images/logo-med.png';
@@ -15,18 +16,37 @@ document.querySelector('#back1').src = backIcon;
 document.querySelector('#list-icon1').src = listIcon;
 document.querySelector('#back2').src = backIcon;
 document.querySelector('#list-icon2').src = listIcon;
+
 // Константы
 const linkAuthor = document.querySelector('.anket-inform-table-author-about');
-// Функция открытия/закрытия данных пользователя в заголовке анкет
-function autorInfoDisplay() {
-    const aboutAuthor = document.querySelector('#authotContactInfo');
-    if (aboutAuthor.classList.contains('display-none')) {
-        aboutAuthor.classList.remove('display-none');
+const closePanelLink = document.querySelector('.close-panel-link');
+
+// Функция открытия/закрытия секций
+function sectionDisplay(selector) {
+    const elementSelector = document.querySelector(selector);
+    if (elementSelector.classList.contains('display-none')) {
+        elementSelector.classList.remove('display-none');
     } else {
-        aboutAuthor.classList.add('display-none');
+        elementSelector.classList.add('display-none');
     }
 }
+// Функция изменения разметки страницы в зависимости от наличия левой панели
+function contentGrid() {
+    const mainContent = document.querySelector('.content');
+    const containerAnket = document.querySelector('.container-inform-anket');
+    if (containerAnket.classList.contains('display-none')) {
+        mainContent.setAttribute('style', 'grid-template-columns: 1fr;');
+    } else {
+        mainContent.style.removeProperty('grid-template-columns');
+    }
+}
+
 // Слушатель состояния данных пользователя в заголовке анкет
 linkAuthor.addEventListener('click', function () {
-    autorInfoDisplay();
+    sectionDisplay('#authotContactInfo');
+})
+// Слушатель кнопки закрыть/открыть панель слева
+closePanelLink.addEventListener('click', function() {
+    sectionDisplay('.container-inform-anket');
+    contentGrid();
 })

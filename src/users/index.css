@@ -1,0 +1,22 @@
+.content {
+    padding: 16px;
+    background-color: #E8F0F5;
+    grid-template-columns: 1fr;
+}
+
+.form-reg {
+    background-color: white;
+    width: 800px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    justify-self: center;
+}
+
+.border-input {
+    border: 1px solid #ced4da; 
+    border-radius: 0.2rem;
+    padding: 4px 8px;
+}
+
+.important-color {
+    color: red;
+}

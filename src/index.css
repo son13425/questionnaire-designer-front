@@ -152,6 +152,12 @@ hr {
     background-color: #fff3cd;
 }
 
+.users-header-page-title {
+    height: 27px;
+    border-top: 5px solid #dc3545;
+    background-color: #ffe5cd;
+}
+
 .page-title-text {
     display: inline-block;
     padding: 5px 50px 5px 100px;
@@ -161,6 +167,18 @@ hr {
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.users-page-title-text {
+    display: inline-block;
+    padding: 5px 50px 5px 100px;
+    background-color: #dc3545;
+    border-radius: 0 0 20px 0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ffe5cd;
 }
 
 /* Стили "к списку форм" */
@@ -603,8 +621,6 @@ hr {
     height: 50vh;
 }
 
-
-
 /* Стили адаптации */
 @media (max-width: 1210px) {
     .header-menu {
@@ -646,6 +662,14 @@ hr {
 
     .anket-blocks {
         flex-grow: 1;
+    }
+
+    .close-panel-link {
+        display: none;
+    }
+
+    .anket-form-heading {
+        padding: 10px;
     }
 }
 

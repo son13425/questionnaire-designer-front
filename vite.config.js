@@ -4,7 +4,8 @@ export default {
         rollupOptions: {
             input: {
                 main: 'index.html',
-                form: 'src/form/index.html'
+                form: 'src/form/index.html',
+                reg: 'src/users/index.html'
             }
         }
     }
