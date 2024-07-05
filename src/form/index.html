@@ -98,14 +98,14 @@
                 <tr class="anket-inform-table-tr">
                   <td class="anket-inform-table-td">Автор</td>
                   <td class="anket-inform-table-td">
-                    <a href="#authotContactInfo" class="anket-inform-table-author-about" role="button">
+                    <div class="anket-inform-table-author-about">
                       <span class="">FENINA1024 (04.07.2024)</span>
                       <div class="anket-inform-table-author-about-decor"></div>
-                    </a>
+                    </div>
                   </td>
                 </tr>
               </tbody>
-              <tbody class="about-anket-inform-author" id="authotContactInfo">
+              <tbody class="about-anket-inform-author display-none" id="authotContactInfo">
                 <tr class="anket-inform-table-tr">
                   <th class="anket-inform-table-th-title" colspan="2">Основная информация об авторе</th>
                 </tr>
@@ -189,25 +189,22 @@
       <div class="anket-blocks">
         <p class="heading">Разделы</p>
         <div class="anket-blocks-inform-container">
-          <a href="#0" class="button-color-container">
-            <div class="button-color"></div>
-            <div class="button-color-decor"></div>
-          </a>
-          <div class="anket-blocks-inform">
-            <ol class="anket-blocks-list">
-              <li class="anket-blocks-list-item anket-blocks-list-item-active">
-                <a class="anket-blocks-list-item-link" href="#0">
-                  <span>Информация об очаге</span>
-                  <div class="anket-blocks-list-item-decor">&#128275;</div>
-                </a>
+          <details open>
+            <summary class="button-color-container">
+              <div class="button-color"></div>
+              <div class="button-color-decor"></div>
+            </summary>
+            <div class="anket-blocks-inform">
+              <ol class="anket-blocks-list">
+                <li class="anket-blocks-list-item anket-blocks-list-item-active">
+                  <a class="anket-blocks-list-item-link" href="#0">
+                    <span>Информация об очаге</span>
+                    <div class="anket-blocks-list-item-decor">&#128275;</div>
+                  </a>
                 </li>
-              <!-- <li class="anket-blocks-list-item">Общая информация</li>
-              <li class="anket-blocks-list-item">Окончательный диагноз (клинический)</li>
-              <li class="anket-blocks-list-item">Лабораторные исследования</li>
-              <li class="anket-blocks-list-item">Исход</li>
-              <li class="anket-blocks-list-item">Видеоинструкция</li> -->
-            </ol>
-          </div>
+              </ol>
+            </div>
+          </details>
         </div>
       </div>
       <div class="container-button-export">

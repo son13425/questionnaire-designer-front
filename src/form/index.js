@@ -15,10 +15,18 @@ document.querySelector('#back1').src = backIcon;
 document.querySelector('#list-icon1').src = listIcon;
 document.querySelector('#back2').src = backIcon;
 document.querySelector('#list-icon2').src = listIcon;
-
-const linkAuthor = document.querySelector('anket-inform-table-author-about');
-const aboutAuthor = document.querySelector('.about-anket-inform-author');
-
+// Константы
+const linkAuthor = document.querySelector('.anket-inform-table-author-about');
+// Функция открытия/закрытия данных пользователя в заголовке анкет
+function autorInfoDisplay() {
+    const aboutAuthor = document.querySelector('#authotContactInfo');
+    if (aboutAuthor.classList.contains('display-none')) {
+        aboutAuthor.classList.remove('display-none');
+    } else {
+        aboutAuthor.classList.add('display-none');
+    }
+}
+// Слушатель состояния данных пользователя в заголовке анкет
 linkAuthor.addEventListener('click', function () {
-    aboutAuthor.style.removeProperty('display')
+    autorInfoDisplay();
 })
