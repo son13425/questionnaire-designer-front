@@ -11,6 +11,7 @@
 @import url('/src/blocks/popup/_is-animated/popup_is-animated.css');
 @import url('/src/blocks/popup/_is-opened/popup_is-opened.css');
 @import url('/src/blocks/login/login.css');
+@import url('/src/ankets/index.css');
 
 .heading {
     background-color: #ffc107;

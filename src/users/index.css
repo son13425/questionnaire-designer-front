@@ -2,6 +2,11 @@
     padding: 13px 8px;
 }
 
+.header-reg-name-text {
+    max-width: 100%;
+    max-height: 70px;
+}
+
 .content-reg {
     padding: 16px;
     background-color: #E8F0F5;
