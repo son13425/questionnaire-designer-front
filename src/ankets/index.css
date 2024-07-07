@@ -2,6 +2,10 @@ ul {
     list-style-type: none;
 }
 
+.main-container {
+    background-color: #E8F0F5;
+}
+
 .container-edit-anket {
     padding-top: 15px;
     flex-shrink: 0;
@@ -20,8 +24,37 @@ ul {
     background-color: #6c757d;
 }
 
+.button-edit-anket:hover {
+    background-color: #5a6268;
+}
+
+.edit-anket-blocks {
+    height: 82vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .button-edit-anket-accent {
     background-color: #dc3545;
+}
+
+.button-edit-anket-accent:hover {
+    background-color: #c82333;
+}
+
+.heading-edit-anket-ol {
+    background-color: #d6d8db;
+    font-weight: 500;
+}
+
+
+/* КЛАСС КОТОРЫЙ НУЖНО ДОБАВЛЯТЬ К ЛИ */
+.edit-ankets-list-item {
+    background-color: #fff;
+}
+
+.edit-ankets-list-item:hover {
+    background-color: #f8f9fa;
 }
 
 .edit-anket-list-item-link {
@@ -42,6 +75,25 @@ ul {
     column-rule: 1px solid #ccc;
 }
 
+.edit-anket-all-users {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.edit-anket-all-users-accent {
+    font-weight: 600;
+}
+
+.edit-anket-form-label {
+    font-size: 14px;
+}
+
+.edit-ankets-input {
+    margin-top: 8px;
+    /* margin-bottom: 6px; */
+    height: 25px;
+}
+
 .edit-anket-user-profile {
     page-break-inside: avoid;
     break-inside: avoid;
@@ -51,11 +103,61 @@ ul {
     font-size: 12px;
 }
 
+.edit-anket-user-profile {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
 
+.edit-anket-user-profile-name {
+    line-height: 1.30;
+    margin-bottom: 2px;
+}
 
+.edit-anket-user-profile-name-number {
+    font-weight: 600;
+}
+
+.edit-anket-user-profile-accent-2 {
+    color: #6c757d;
+    font-size: 11px;
+    line-height: 1.30;
+}
+
+.edit-anket-user-profile-link {
+    font-size: 11px;
+}
+
+.edit-ankets-card-user-select {
+    border: 1px solid rgb(118, 118, 118);
+    padding: 2px;
+}
+
+.edit-ankets-card-user-accent-good {
+    color: #28a745;
+}
+
+.edit-ankets-card-user-accent-bad {
+    color: #dc3545;
+}
+
+.footer-edit-ankets {
+    margin-top: 0;
+}
+
+@media (max-width: 1210px) {
+    .edit-anket-users {
+        column-count: 2;
+    }
+}
 
 @media (max-width: 680px) {
     .buttons-container-edit-anket {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 550px) {
+    .edit-anket-users {
+        column-count: 1;
     }
 }
