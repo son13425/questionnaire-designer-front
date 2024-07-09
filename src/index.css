@@ -40,7 +40,7 @@ hr {
 /* Шапка */
 .header-name {
     display: flex;
-    gap: clamp(0.938rem, -0.625rem + 2.778vi, 1.875rem); /* от 15px до 30px на 900 на 1440 */
+    gap: 30px; /* от 15px до 30px на 900 на 1440 */
 }
 
 .header-logo-link {
@@ -59,7 +59,7 @@ hr {
     max-width: 600px;
     max-height: 50px;
     color: #fff;
-    font-size: clamp(0.563rem, 0.462rem + 0.459vi, 0.875rem); /* от 9px до 14px на 350 на 1440 */
+    font-size: 14px; /* от 9px до 14px на 350 на 1440 */
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -624,10 +624,14 @@ hr {
 
 /* Стили адаптации */
 @media (max-width: 1210px) {
+    .header-name-text {
+         font-size: 12px;
+    }
+
     .header-menu {
         display: flex;
         justify-content: end;
-        width: clamp(1.875rem, -27.795rem + 69.811vi, 25rem); /* от 30px до 400px на 680 на 1210 */
+        width: 400px; /* от 30px до 400px на 680 на 1210 */
     }
 
     .header-menu-list {
@@ -651,6 +655,18 @@ hr {
     .content {
         grid-template-columns: 1fr;
         grid-template-rows: max-content 1fr;
+    }
+
+    .header-name {
+        gap: 15px;
+    }
+
+    .header-name-text {
+        font-size: 9px;
+   }
+
+   .header-menu {
+        width: 150px; /* от 30px до 400px на 680 на 1210 */
     }
 
     /* .container-inform-anket {
@@ -680,11 +696,15 @@ hr {
     }
 
     .header-menu {
-        width: clamp(11.25rem, -6.702rem + 82.067vi, 28.125rem); /* от 180px до 450px на 350 на 679 */
+        width: 450px; /* от 180px до 450px на 350 на 679 */
     }
 }
 
 @media (max-width: 550px) {
+    .header-menu {
+        width: 250px; /* от 180px до 450px на 350 на 679 */
+    }
+
     .container-inform-anket {
         flex-direction: column;
     }
@@ -697,5 +717,9 @@ hr {
 @media (max-width: 450px) {
     .header-page-title {
         height: 100%;
+    }
+
+    .header-menu {
+        width: 180px; /* от 180px до 450px на 350 на 679 */
     }
 }
