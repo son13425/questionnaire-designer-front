@@ -15,3 +15,14 @@ document.querySelector('#menu-icon').src = menuIcon;
 document.querySelector('#avatar').src = userAvatar;
 // document.querySelector('#back2').src = backIcon;
 // document.querySelector('#list-icon2').src = listIcon;
+
+// Переменные
+const openFormButton = document.querySelector('.open')
+
+// Функция открытия формы
+function handleOpenForm() {
+    window.location.replace('/src/form/');
+}
+
+// Слушатель клика Открыть форму
+openFormButton.addEventListener('click', handleOpenForm)
