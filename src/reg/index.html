@@ -32,90 +32,91 @@
     <form class="form-reg">
         <fieldset class="fieldset-reg">
             <label for="organization" class="form-anket-label">Организация</label>
-                <select
-                  id="organization"
-                  name=""
-                  class="form-input form-input-select input-reg"
-                  value=""
-                  placeholder="Учреждение...">
-                </select>
+            <input 
+                id="organization"
+                name="organization" 
+                type="search"
+                class="form-input form-input-select input-reg"
+                list="organizations"  
+                placeholder="Учреждение...">
+            <datalist id="organizations">
+            </datalist>
             <label for="surname" class="form-anket-label">Фамилия<span class="important-color">*</span></label>
                 <input
                     id="surname"
-                    name=""
+                    name="surname"
                     type="text"
                     class="form-input input-reg"
                     minlength="2"
                     maxlength="100"
                     pattern="^[a-zA-Zа-яА-я\-\s]+$"
                     data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
-                    value=""
                     placeholder="Фамилия"
                     required>
             <label for="name" class="form-anket-label">Имя<span class="important-color">*</span></label>
                 <input
                     id="name"
-                    name=""
+                    name="username"
                     type="text"
                     class="form-input input-reg"
                     minlength="2"
                     maxlength="100"
                     pattern="^[a-zA-Zа-яА-я\-\s]+$"
                     data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
-                    value=""
                     placeholder="Имя"
                     required>
             <label for="patronymic" class="form-anket-label">Отчество</label>
                 <input
                     id="patronymic"
-                    name=""
+                    name="patronymic"
                     type="text"
                     class="form-input input-reg"
                     minlength="2"
                     maxlength="100"
                     pattern="^[a-zA-Zа-яА-я\-\s]+$"
                     data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
-                    value=""
                     placeholder="Отчество">
             <label for="position" class="form-anket-label">Должность</label>
-                <select
-                  id="position"
-                  name=""
-                  class="form-input form-input-select input-reg"
-                  value=""
-                  placeholder="Должность...">
-                </select>
+                <input 
+                    id="position"
+                    name="position" 
+                    type="search"
+                    class="form-input form-input-select input-reg"
+                    list="positions"  
+                    placeholder="Должность...">
+                <datalist id="positions">
+                </datalist>
             <label for="phone" class="form-anket-label">Телефон<span class="important-color">*</span></label>
                 <input
                     id="phone"
-                    name=""
+                    name="phone"
                     type="text"
                     class="form-input input-reg"
                     minlength="2"
                     maxlength="9"
                     pattern="^[0-9\s]+$"
                     data-error-message="Разрешены только цифры"
-                    value=""
                     placeholder="Телефон"
                     required>
             <label for="email" class="form-anket-label">Email<span class="important-color">*</span></label>
                 <input
                     id="email"
-                    name=""
+                    name="email"
                     type="email"
                     class="form-input input-reg"
                     data-error-message=""
-                    value=""
                     placeholder="email"
                     required>
             <label for="target" class="form-anket-label">Цель регистрации</label>
-                <select
-                  id="target"
-                  name=""
-                  class="form-input form-input-select input-reg"
-                  value=""
-                  placeholder="Цель регистрации...">
-                </select>
+                <input 
+                    id="target"
+                    name="registration_goal" 
+                    type="search"
+                    class="form-input form-input-select input-reg"
+                    list="goals"  
+                    placeholder="Цель регистрации...">
+                <datalist id="goals">
+                </datalist>
         </fieldset>
         <div class="container-buttons container-buttons-reg">
             <button class="button anket-form-button-save">Отправить</button>
@@ -138,6 +139,9 @@
       <p class="footer-reg__contacts-text">+7(499)755-00-91, +7(925)720-38-24 (дежурный, круглосуточный), +7(499)755-00-95, +7(925)720-26-15 (контакт-центр в будние дни с 09:30 до 18:00), &#9993; ncmbr@cspfmba.ru</p>
     </div>
   </footer>
+  <template id="list-element">
+    <option class="element"></option>
+  </template>
 <script type="module" src="index.js"></script>
 </body>
 </html>
