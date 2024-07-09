@@ -1,6 +1,6 @@
 // базовый конфиг для подключения к серверу
 export const baseConfig = {
-    baseUrl: 'http://localhost:8000/',
+    baseUrl: 'http://84.201.154.109:8000/',
     headers: {
         'Content-Type': 'application/json'
     }
