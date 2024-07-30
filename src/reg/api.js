@@ -18,14 +18,6 @@ export const getPositionsList = () => {
 }
 
 
-// get-запрос на загрузку данных из справочника Цели регистрации
-export const getGoalsList = () => {
-    return fetch(`${baseConfig.baseUrl}registration_goal/`, {
-        headers: baseConfig.headers
-    })
-}
-
-
 // post-запрос на создание пользователя
 export const postCreateUser = (bodyMessage) => {
     return fetch(`${baseConfig.baseUrl}auth/register`, {

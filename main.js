@@ -22,12 +22,10 @@ function handleFormInputSabmit(evt) {
     Array.from(data.entries()).forEach((item) => {
         bodyMessage[item[0]] = item[1];
     })
-    console.log(bodyMessage['username'])
-    console.log(bodyMessage['password'])
     postInputUser(bodyMessage['username'], bodyMessage['password'])
         .then(res =>  checkResponse(res))
         .then((res) => {
-            console.log(res)
+            window.localStorage.setItem('ef_token', res['access_token'])
             renderLoading(false, evt.target.querySelector('.login-button-in'));
             window.location.replace('/src/ankets/');
         })

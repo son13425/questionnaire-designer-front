@@ -1,5 +1,5 @@
 // Импорт файлов
-import { getOrganizationsList, getPositionsList, getGoalsList, postCreateUser } from './api.js';
+import { getOrganizationsList, getPositionsList, postCreateUser } from './api.js';
 import { renderLoading, checkResponse } from '/src/scripts/utils.js';
 
 // Импорт стилей
@@ -15,12 +15,10 @@ document.querySelector('#header-logo').src = headerLogo;
 // Глобальные переменные
 let dictOrganizations = {};
 let dictPositions = {};
-let dictGoals = {};
 
 // Переменные
 const placeListOrganizations = document.querySelector('#organizations');
 const placeListPositions = document.querySelector('#positions');
-const placeListGoals = document.querySelector('#goals');
 const formNode = document.querySelector('.form-reg');
 
 
@@ -33,27 +31,8 @@ function createElementList(item) {
 }
 
 
-// Функция генерации пароля
-function generatePassword(){
-	var length = 8,
-	charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@-#$";
-	if(window.crypto && window.crypto.getRandomValues) {
-		return Array(length)
-			.fill(charset)
-			.map(x => x[Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / (0xffffffff + 1) * (x.length + 1))])
-			.join('');    
-	} else {
-		res = '';
-		for (var i = 0, n = charset.length; i < length; ++i) {
-			res += charset.charAt(Math.floor(Math.random() * n));
-		}
-		return res;
-	}
-}
-
-
 // Вывод полей со списками
-Promise.all([getOrganizationsList(), getPositionsList(), getGoalsList()])
+Promise.all([getOrganizationsList(), getPositionsList()])
     .then(responses => Promise.all(responses.map(response => response.json())))
     .then(([organisationData, positionData, goalData]) => {
         // вывод поля Организация
@@ -67,12 +46,6 @@ Promise.all([getOrganizationsList(), getPositionsList(), getGoalsList()])
             const elementList = createElementList(item.name);
             placeListPositions.append(elementList);
             dictPositions[item.name] = item.id;
-        });
-        // вывод поля Цель регистрации
-        goalData.goals.forEach((item) => {
-            const elementList = createElementList(item.name);
-            placeListGoals.append(elementList);
-            dictGoals[item.name] = item.id;
         });
     })
     .catch((err) => {
@@ -93,16 +66,14 @@ function handleFormRegistrationSabmit(evt) {
     Array.from(data.entries()).forEach((item) => {
         bodyMessage[item[0]] = item[1];
     })
-    bodyMessage['password'] = generatePassword();
     bodyMessage['role'] = 1;
     bodyMessage['organization'] = dictOrganizations[bodyMessage['organization']];
     bodyMessage['position'] = dictPositions[bodyMessage['position']];
-    bodyMessage['registration_goal'] = dictGoals[bodyMessage['registration_goal']];
     postCreateUser(bodyMessage)
         .then(res =>  checkResponse(res))
         .then((res) => {
             renderLoading(false, evt.target.querySelector('.button'));
-            window.location.replace('/src/ankets/');
+            window.location.replace('/');
         })
         .catch((err) => {
             console.log(err)
@@ -111,4 +82,4 @@ function handleFormRegistrationSabmit(evt) {
 
 
 // Слушатель события отправки формы
-formNode.addEventListener('submit', handleFormRegistrationSabmit)
+// formNode.addEventListener('submit', handleFormRegistrationSabmit)

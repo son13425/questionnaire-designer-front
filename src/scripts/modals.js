@@ -21,7 +21,7 @@ export function closePopup(popupElement, popupSelectors) {
 // Функция закрытия попапа через оверлей
 function closePopupOverlay(evt) {
     if (evt.currentTarget === evt.target) {
-        closePopup(evt.target);
+        closePopup(evt.target, popupSelectors);
     }
 }
 
@@ -29,8 +29,6 @@ function closePopupOverlay(evt) {
 function closePopupKeyHandler(evt) {
     if (evt.key === 'Escape') {
         const popupObjOpen = document.querySelector(popupSelectors.popupIsOpenedSelector);
-        closePopup(popupObjOpen);
+        closePopup(popupObjOpen, popupSelectors);
     }
 }
-
-

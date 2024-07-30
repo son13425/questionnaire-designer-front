@@ -3,6 +3,11 @@ export const checkResponse = (result) => {
     if (result.ok) {
         return result.json();
     }
+    else if (result.status === 401) {
+        window.location.replace('/');
+    } else {
+        alert('Что-то пошло не так, попробуйте пповторить позже...')
+    }
     return Promise.reject(`Ошибка: ${result.status}`);
 }
 

@@ -5,7 +5,7 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Доступ к форме ""</title>
+  <title>Доступ к форме (форма не выбрана) | Узел сбора информации | НЦ МБР</title>
 </head>
 <body>
     <div class="page__content">
@@ -66,46 +66,31 @@
             </button>
         </header>
       <div class="header-page-title main-container">
-        <div class="page-title-text">Доступ к форме ""</div>
+        <div class="page-title-text">Доступ к форме (форма не выбрана)</div>
       </div>
       <main class="container-edit-anket page__section main-container">
         <div class="buttons-container-edit-anket">
-            <button class="button button-edit-anket button-edit-anket-accent">
+            <button class="button button-edit-anket button-edit-anket-accent create-anket">
                 <span class="">&#10010;</span>
                 Создать новый тип формы
             </button>
-            <button class="button button-edit-anket">
-                <span class="">&#128394;</span>
-                Редактировать
-            </button>
-            <button class="button button-edit-anket">
-                <span class="">&#9965;</span>
-                К настройкам
-            </button>
-            <button class="button button-edit-anket open">
-              Открыть форму
-          </button>
+            <div class="button__list button__list-none">
+                <button id="edit-anket" class="button button-edit-anket">
+                  <span class="">&#128394;</span>
+                  Редактировать
+                </button>
+                <button class="button button-edit-anket setting-anket">
+                  <span class="">&#9965;</span>
+                  К настройкам
+                </button>
+            </div>
         </div>
         <div class="content">
             <section class="container-inform-anket">
-                <div class="anket-blocks edit-anket-blocks">
-                    <p class="heading heading-edit-anket-ol">Общие</p>
-                    <div class="anket-blocks-inform-container">
-                        <div class="anket-blocks-inform">
-                          <ul class="anket-blocks-list">
-                            <li class="anket-blocks-list-item anket-blocks-list-item-active">
-                              <a class="anket-blocks-list-item-link edit-anket-list-item-link" href="#0">
-                                <span class="">119</span>
-                                <span class="">&#129001;</span>
-                                <span>Очаги инфекционных заболеваний</span>
-                                <p class="anket-blocks-list-item-decor edit-anket-list-item-decor">&#128275;</p>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </details>
-                    </div>
-                  </div>
+              <div class="anket-blocks edit-anket-blocks">
+                <ul class="groups__list">
+                </ul>
+              </div>   
             </section>
             <section class="container-anket-form">
                 <div class="">
@@ -267,7 +252,6 @@
             </section>
         </div>
 
-
       </main>
       <footer class="footer page__section footer-edit-ankets">
         <img
@@ -281,6 +265,205 @@
       </footer>
     </div>
 
+    <!--Попап редактирования страницы-->
+    <div class="popup popup-edit-anket popup-is-animated">
+      <form class="popup-form-edit-anket" name="editAnket">
+        <div class="popup-form-heading-container">
+          <h5 class="popup-form-title edit-title"></h5>
+          <button type="button" class="popup-edit-anket-close-button popup-close">&#10006;</button>
+        </div>
+        <fieldset class="popup-fieldset-edit-anket">
+          <label class="form-label" for="edit-anket-name">Название</label>
+          <input
+            name="label"
+            class="form-edit-anket-input"
+            id="edit-anket-name"
+            type="text"
+            data-error-message="">
+          <label class="form-label" for="edit-anket-group">Группа (если не указано, то попадет в "Общие")</label>
+          <input
+            name="group"
+            class="form-edit-anket-input"
+            id="edit-anket-group"
+            type="search"
+            list="groups_edit"
+            data-error-message="">
+          <datalist id="groups_edit">
+          </datalist>
+          <label class="form-edit-anket-label-checbox">
+            <input
+              name="is_active"
+              class="form-edit-anket-checbox visually-hidden"
+              id="edit-anket-is-active"
+              type="checkbox"
+              >
+              <span class="form-edit-anket-pseudo-checkbox"></span>
+              Активна
+          </label>
+          <label class="form-edit-anket-label-checbox">
+            <input
+              name="is_subscribe"
+              class="form-edit-anket-checbox visually-hidden"
+              id="edit-anket-is-subscribe"
+              type="checkbox"
+              >
+              <span class="form-edit-anket-pseudo-checkbox"></span>
+              Может подписываться
+          </label>
+          <label class="form-edit-anket-label-checbox">
+            <input
+              name="is_open"
+              class="form-edit-anket-checbox visually-hidden"
+              id="edit-anket-is-open"
+              type="checkbox"
+              >
+              <span class="form-edit-anket-pseudo-checkbox"></span>
+              Добавление новых записей заблокировано
+          </label>
+          <label class="form-edit-anket-label-checbox">
+            <input
+              name="for_iac"
+              class="form-edit-anket-checbox visually-hidden"
+              id="edit-anket-for-iac"
+              type="checkbox"
+              >
+              <span class="form-edit-anket-pseudo-checkbox"></span>
+              Для ИАС
+          </label>
+          <label class="form-label form-edit-anket-label-textarea" id="popup-edit-anket-textarea">Подсказка к форме</label>
+          <textarea
+            name="description"
+            class="form-edit-anket-textarea"
+            id="popup-edit-anket-description"
+            rows="4"></textarea>
+        </fieldset>
+        <div class="popup-edit-anket-buttons-container">
+          <button class="popup-edit-anket-button popup-edit-anket-button-save button-edit">Сохранить</button>
+          <button class="popup-edit-anket-button popup-edit-anket-button-cancel popup-close">Отмена</button>
+        </div>
+      </form>
+    </div>
+
+    <!--Попап создания анкеты-->
+    <div class="popup popup-edit-anket popup_type_edit popup-create-anket popup-is-animated">
+      <form class="popup-form-create-anket" name="newAnket">
+        <div class="popup-form-heading-container">
+          <h5 class="popup-form-title"></h5>
+          <button type="button" class="popup-edit-anket-close-button popup-close">&#10006;</button>
+        </div>
+        <fieldset class="popup-fieldset-edit-anket">
+          <label class="form-label" for="edit-anket-name">Название</label>
+          <input
+            name="label"
+            class="form-edit-anket-input"
+            type="text"
+            data-error-message="">
+          <label class="form-label" for="edit-anket-group">Группа (если не указано, то попадет в "Общие")</label>
+          <input
+            name="group"
+            class="form-edit-anket-input"
+            type="search"
+            list="groups"
+            data-error-message="">
+          <datalist id="groups">
+          </datalist>
+          <label class="form-edit-anket-label-checbox">
+            <input
+              name="is_active"
+              class="form-edit-anket-checbox visually-hidden"
+              type="checkbox"
+              checked
+              >
+              <span class="form-edit-anket-pseudo-checkbox"></span>
+              Активна
+          </label>
+          <label class="form-edit-anket-label-checbox">
+            <input
+              name="is_subscribe"
+              class="form-edit-anket-checbox visually-hidden"
+              type="checkbox"
+              checked
+              >
+              <span class="form-edit-anket-pseudo-checkbox"></span>
+              Может подписываться
+          </label>
+          <label class="form-edit-anket-label-checbox">
+            <input
+              name="is_open"
+              class="form-edit-anket-checbox visually-hidden"
+              type="checkbox"
+              >
+              <span class="form-edit-anket-pseudo-checkbox"></span>
+              Добавление новых записей заблокировано
+          </label>
+          <label class="form-edit-anket-label-checbox">
+            <input
+              name="for_iac"
+              class="form-edit-anket-checbox visually-hidden"
+              type="checkbox"
+              >
+              <span class="form-edit-anket-pseudo-checkbox"></span>
+              Для ИАС
+          </label>
+          <label class="form-label form-edit-anket-label-textarea" id="popup-edit-anket-textarea">Подсказка к форме</label>
+          <textarea
+            name="description"
+            class="form-edit-anket-textarea"
+            rows="4">
+          </textarea>
+        </fieldset>
+        <div class="popup-edit-anket-buttons-container">
+          <button type="submit" class="popup-edit-anket-button popup-edit-anket-button-save button-create">Сохранить</button>
+          <button class="popup-edit-anket-button popup-edit-anket-button-cancel popup-close">Отмена</button>
+        </div>
+      </form>
+    </div>
+
+
+
+    <template id="group-template">
+      <li class="anket-blocks edit-anket-blocks">
+          <p class="heading heading-edit-anket-ol"></p>
+      </li>
+    </template>
+
+    <template id="template-anket-li">
+      <li class="anket-blocks-list-item">
+        <a class="anket-blocks-list-item-link edit-anket-list-item-link" href="#0">
+          <div class="anket-blocks-list-item-container">
+            <span class="anket-id"></span>
+            <span class="anket-status badge"></span>
+            <span class="anket-label"></span>
+          </div>          
+          <span class="badge-lock-closed">
+            <svg version="1.1" id="Слой_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 9 14"
+                style="enable-background:new 0 0 9 14; width: 9px;" xml:space="preserve">
+              <style type="text/css">
+                .st0{fill:#DC3545;}
+                .st1{fill:none;stroke:#DC3545;stroke-width:1.5;stroke-miterlimit:10;}
+              </style>
+              <switch>
+                <g i:extraneous="self">
+                  <g>
+                    <g>
+                      <path class="st0" d="M8,12H1c-0.55,0-1-0.45-1-1V7c0-0.55,0.45-1,1-1h7c0.55,0,1,0.45,1,1v4C9,11.55,8.55,12,8,12z"/>
+                    </g>
+                    <ellipse class="st1" cx="4.5" cy="6" rx="3" ry="4"/>
+                  </g>
+                </g>
+              </switch>
+            </svg>
+          </span>
+        </a>
+      </li>
+    </template>
+
+    <template id="list-element">
+      <option class="element"></option>
+    </template>
+
     <script type="module" src="index.js"></script>
 </body>
 </html>
+ 
