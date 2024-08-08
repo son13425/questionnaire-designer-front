@@ -5,7 +5,7 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Доступ к форме (форма не выбрана) | Узел сбора информации | НЦ МБР</title>
+  <title>Макет. | Узел сбора информации | НЦ МБР</title>
 </head>
 <body>
     <div class="page__content">
@@ -65,43 +65,235 @@
                 class="button-sign-image">
             </button>
         </header>
-      <div class="header-page-title main-container">
-        <div class="page-title-text">Доступ к форме (форма не выбрана)</div>
-      </div>
-      <main class="container-edit-anket page__section main-container">
-        <div class="buttons-container-edit-anket">
-            <button class="button button-edit-anket button-edit-anket-accent">
-                <span class="">&#10010;</span>
-                Создать новый тип формы
-            </button>
-            <div class="button__list">
+        <div class="header-page-title main-container">
+            <div class="page-title-text">Макет.</div>
+        </div>
+        <main class="anket-edit__main page__section">
+            <div class="main__content-conteiner main__left-container">
+                <form class="anket-edit__form-checkbox" name="is_active">
+                    <label class="form-edit-anket-label-checbox anket-edit-label-checkbox">
+                        <input
+                          class="form-edit-anket-checbox visually-hidden"
+                          id="edit-anket-is-open"
+                          type="checkbox"
+                          name="is_open"
+                          >
+                          <span class="form-edit-anket-pseudo-checkbox"></span>
+                          Добавление новых записей блокировано
+                      </label>
+                </form>
+                <div class="anket-edit-main__heading-container">
+                    <p id="counter-fields" class="anket-edit-main__heading">Группы и подгруппы вопросов (???)</p>
+                    <button class="anket-edit-main__button-add create-section" title="Добавить новую группу вопросов">+</button>
+                </div>
+                <hr>
+                <div class="chapters-container">
+                </div>
+                <hr>
+                <div class="anket-edit-main__heading-container">
+                    <p class="anket-edit-main__heading">Быстрые формы</p>
+                    <button class="anket-edit-main__button-add" title="Добавить новое представление формы">+</button>
+                </div>
+                <p class="main__content-conteiner-text">
+                    Быстрые формы (БФ) - вопросы, объединенные в группы и доступные через меню "Быстрые формы". Предназначенны для оперативного поиска и ввода информации. Все прочие вопросы анкеты в БФ не отражаются. Быстрых форм у анкеты может быть несколько или ни одной.
+                </p>
+                <hr></hr>
             </div>
-        </div>
-        <div class="content">
-            <section class="container-inform-anket">
-              <div class="anket-blocks edit-anket-blocks">
-                <ul class="groups__list">
-                </ul>
-              </div>   
-            </section>
-            <section class="container-anket-form">
-              Страница находится в разработке
-            </section>
-        </div>
+            <div class="main__content-conteiner main__center-container">
+                <div class="anket-edit-main__heading-container">
+                    <p class="anket-edit-main__heading">Прикрепленные файлы (до 4096 КБ)
+                    </p>
+                    <button class="anket-edit-main__button-add">+</button>
+                </div>
+                <div class="main__content-block-accent">
+                  <div class="main__content-block-heading-container ">
+                    <p class="content-block-title">Инструкция по заполнению</p>
+                    <div class="main__content-block__buttons-container">
+                      <button class="content-block__button content-block__edit-button">&#9998;</button>
+                      <button class="content-block__button content-block__delete-button">&#10006;</button>
+                    </div>
+                  </div>
+                  <div class="main__content-block-heading-container main__content-block-heading-container-hidden">
+                    <input
+                      id="instrukcia"
+                      class="content-block-input"
+                      type="text"
+                      placeholder="Инструкция по заполнению">
+                    <div class="main__content-block__buttons-container">
+                      <button class="content-block__button content-block__save-button">&#10004;</button>
+                      <button class="content-block__button content-block__back-button">&#8634;</button>
+                    </div>
+                  </div>
+                  <a class="content-block__link" href="#0">Отсканировано с помощью многофункционального принтера Xerox.pdf</a>
+                  <p class="content-block__text-small">application/pdf</p>
+                </div>
+            </div>
+            <div class="main__content-conteiner main__right-container">
+                <div class="anket-edit-main__heading-container">
+                    <p class="anket-edit-main__heading">Дополнительная информация</p>
+                    <button class="anket-edit-main__button-add">+</button>
+                </div>
+                <div class="main__content-block-accent">
+                  <div class="dop-container">
+                    <div class="dop-item">
+                      <p class="dop-item-number">996.</p>
+                      <p class="dop-item-title">Горячая линия:</p>
+                      <p class="dop-item-comment">+7(499)755-00-91, +7(925)720-38-24 (дежурный, круглосуточный), +7(499)755-00-95, +7(925)720-26-15 (контакт-центр в будние дни с 09.30 до 18.00), ncmbr@cspfmba.ru</p>
+                    </div>
+                    <div class="main__content-block__buttons-container">
+                      <button class="content-block__button content-block__edit-button">&#9998;</button>
+                      <button class="content-block__button content-block__delete-button">&#10006;</button>
+                    </div>
+                  </div>
+                  <div class="form-dop-container form-dop-container-visible">
+                    <!-- <form class="form-dop" name="info">
+                      <label class="">
+                        <input
+                          id=""
+                          class="form-dop__input form-dop__input-number"
+                          type="number"
+                          value="996"
+                          >
+                      </label>
+                      <label class="">
+                        <input
+                          id=""
+                          class="form-dop__input form-dop__input-text"
+                          type="text"
+                          value="Горячая линия"
+                          >
+                      </label>
+                      <label class="">
+                        <input
+                          id=""
+                          class="form-dop__input form-dop__input-text"
+                          type="text"
+                          value="+7(499)755-00-91, +7(925)720-38-24 (дежурный, круглосуточный), +7(499)755-00-95, +7(925)720-26-15 (контакт-центр в будние дни с 09.30 до 18.00), ncmbr@cspfmba.ru"
+                          >
+                      </label>
+                      <label class="form-edit-anket-label-checbox anket-edit-label-checkbox">
+                        <input
+                          class="form-edit-anket-checbox visually-hidden"
+                          id=""
+                          type="checkbox"
+                          >
+                          <span class="form-edit-anket-pseudo-checkbox"></span>
+                      </label>
+                    </form> -->
+                    <div class="main__content-block__buttons-container">
+                      <button class="content-block__button content-block__save-button">&#10004;</button>
+                      <button class="content-block__button content-block__back-button">&#8634;</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
 
-      </main>
-      <footer class="footer page__section footer-edit-ankets">
-        <img
-          id="footer-logo"
-          alt="Лого"
-          class="footer-logo">
-        <div class="container-footer-inform">
-          <p class="footer-inform-title">фгбу цпс фмба России</p>
-          <p class="footer-inform-text">Центр стратегического планирования и управления медико-биологическими рисками здоровью</p>
-        </div>
-      </footer>
+
+        </main>
+
+        <footer class="footer page__section footer-edit-ankets">
+            <img
+              id="footer-logo"
+              alt="Лого"
+              class="footer-logo">
+            <div class="container-footer-inform">
+              <p class="footer-inform-title">фгбу цпс фмба России</p>
+              <p class="footer-inform-text">Центр стратегического планирования и управления медико-биологическими рисками здоровью</p>
+            </div>
+          </footer>
     </div>
+
     <script type="module" src="index.js"></script>
+
+    <template id="section-template">
+        <li class="anket-fields-list-item">
+          <div class="anket-blocks-list-item-link edit-anket-list-item-link">
+            <p class="list-item-link-text" title="Редактировать свойства этой группы">
+              <span class="link-text-accent section-sorting"></span>
+              <span class="dependent-field field-off">
+                <img class="share-link icon-width" alt="Зависимое поле">
+              </span>
+              <span class="link-text"></span>
+              <span class="link-text-accent column-section"></span>
+            </p>
+            <div class="list-item-link-icons" title="Перейти к вопросам этой группы">
+                <span class="list-item-link-icons-text"></span>
+                <img class="list-icon icon-width" alt="Иконка списка">
+                <img class="right-arrow icon-width" alt="Стрелка направо">
+            </div>
+          </div>                
+        </li>
+    </template>
+
+    <template id="chapter-template">
+      <div class="chapter">
+        <h6 class="group-title"></h6>
+        <ul class="anket-fields-list">
+        </ul>
+      </div>
+  </template>
+   
+  <div class="popup-edit-anket popup-is-animated">
+    <form class="popup-form-edit-anket" name="newSection">
+      <div class="popup-form-heading-container">
+        <h5 class="popup-form-title"></h5>
+        <button type="button" class="popup-edit-anket-close-button popup-close">&#10006;</button>
+      </div>
+      <fieldset class="popup-fieldset-edit-anket">
+        <label class="form-label" for="section-name">Название</label>
+        <input
+          name="label"
+          class="form-edit-anket-input"
+          id="section-name"
+          type="text"
+          data-error-message="">
+        <label class="form-label" for="section-chapter">Родительский раздел</label>
+        <input
+          name="chapter"
+          class="form-edit-anket-input"
+          id="section-chapter"
+          type="search"
+          list="chapters-list"
+          data-error-message="">
+          <datalist id="chapters-list">
+          </datalist>
+        <label class="form-label" for="section-sort">Сортировка</label>
+        <input
+          name="sorting"
+          class="form-edit-anket-input"
+          id="section-sort"
+          type="text"
+          data-error-message="">
+        <label class="form-label" for="section-columns">Количество колонок</label>
+        <input
+          name="columns"
+          class="form-edit-anket-input"
+          id="section-columns"
+          type="number"
+          data-error-message="">
+        <label class="form-label" for="dependent">Вопрос, управляющее видимостью этой группы</label>
+        <input
+          name="dependent"
+          class="form-edit-anket-input"
+          id="dependent"
+          type="search"
+          list="dependents-list"
+          data-error-message="">
+          <datalist id="dependents-list">
+          </datalist>
+        <p class="text-muted">Только вопросы, находящиеся в других группах + видимые + являющиеся списками</p>
+      </fieldset>
+      <div class="popup-edit-anket-buttons-container popup-edit-anket-buttons-flex">
+        <button class="popup-edit-anket-button popup-edit-anket-button-delete">Удалить</button>
+        <div class="">
+          <button type="submit" class="popup-edit-anket-button popup-edit-anket-button-save">Сохранить</button>
+          <button type="button" class="popup-edit-anket-button popup-edit-anket-button-cancel popup-close">Отмена</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <template id="list-element">
+    <option class="element"></option>
+  </template>
 </body>
 </html>
- 

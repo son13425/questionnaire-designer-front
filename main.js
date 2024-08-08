@@ -30,6 +30,8 @@ function handleFormInputSabmit(evt) {
             window.location.replace('/src/ankets/');
         })
         .catch((err) => {
+            renderLoading(false, evt.target.querySelector('.login-button-in'));
+            alert('Что-то пошло не так, попробуйте повторить позже...')
             console.log(err)
         })
 }

@@ -6,7 +6,7 @@ export const checkResponse = (result) => {
     else if (result.status === 401) {
         window.location.replace('/');
     } else {
-        alert('Что-то пошло не так, попробуйте пповторить позже...')
+        alert('Что-то пошло не так, попробуйте повторить позже...')
     }
     return Promise.reject(`Ошибка: ${result.status}`);
 }
@@ -18,4 +18,12 @@ export const renderLoading = (isLoading, buttonElement) => {
     } else {
         buttonElement.textContent = 'Отправить'
     }
+}
+
+// Функция сортировки массива
+export const sortingListObjects = (list, attribut) => {
+    list.sort(function(a, b) {
+        return a.attribut - b.attribut;
+    });
+    return list;
 }

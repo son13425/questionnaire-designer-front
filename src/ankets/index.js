@@ -220,6 +220,7 @@ function handleCreateAnketSubmit(evt) {
     postCreateAnket(bodyMessage)
         .then(res => checkResponse(res))
         .then((res) => {
+            window.localStorage.setItem('select_anket', res.uuid);
             initialAnkets();
             placeListGroups.textContent = '';
             closePopup(popupCreateAnket, popupSelectors);
