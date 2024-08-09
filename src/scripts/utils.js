@@ -20,10 +20,10 @@ export const renderLoading = (isLoading, buttonElement) => {
     }
 }
 
-// Функция сортировки массива
-export const sortingListObjects = (list, attribut) => {
+// Функция сортировки массива по полю sorting
+export const sortingListObjects = (list) => {
     list.sort(function(a, b) {
-        return a.attribut - b.attribut;
+        return a.sorting - b.sorting;
     });
     return list;
 }

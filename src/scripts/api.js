@@ -97,3 +97,12 @@ export const getAnketSection = (uuid_section) => {
         headers: baseConfig.headers
     })
 }
+
+// patch-запрос на обновление секции
+export const patchSection = (uuid, dataSection) => {
+    return fetch(`${baseConfig.baseUrl}sections/${uuid}`, {
+        method: 'PATCH',
+        headers: baseConfig.headers,
+        body: JSON.stringify(dataSection)
+    })
+}

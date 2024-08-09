@@ -1,5 +1,5 @@
 // Импорт файлов
-import { getAnket, patchAnket, getChaptersSections, getSections, getAnketSection, postCreateSection } from '/src/scripts/api.js';
+import { getAnket, patchAnket, getChaptersSections, getSections, getAnketSection, postCreateSection, patchSection } from '/src/scripts/api.js';
 import { checkResponse, sortingListObjects, renderLoading } from '../scripts/utils';
 import { popupSelectors, openPopup, closePopup } from '/src/scripts/modals.js';
 
@@ -40,6 +40,8 @@ const popupSectionName = document.querySelector('#section-name');
 const popupSectionChapter = document.querySelector('#section-chapter');
 const popupSectionSorting = document.querySelector('#section-sort');
 const popupSectionColumns = document.querySelector('#section-columns');
+const popupSectionUuid = document.querySelector('#section-uuid');
+const popupButtonDelete = document.querySelector('.popup-edit-anket-button-delete');
 
 
 // Функция отрисовки чек-бокса блокировки анкеты
@@ -83,14 +85,10 @@ function createChapter(element) {
 // Функция создания элемента раздела
 function createSection(element) {
     let chapterId = 0;
-    console.log('c1', chapterId)
     if (element.chapters_id) {
-        console.log('c111', element.chapters_id)
         chapterId = element.chapters_id;
     }
-    console.log('c2', chapterId)
     const chapterUl = document.getElementById(chapterId);
-    console.log('c3', chapterUl)
     const sectionLineTemplate = document.querySelector('#section-template').content;
     const sectionLineElement = sectionLineTemplate.querySelector('.anket-fields-list-item').cloneNode(true);
     sectionLineElement.id = element.uuid;
@@ -118,7 +116,6 @@ function initialChapterSections () {
     Promise.all([getChaptersSections(uuidAnket), getSections(uuidAnket)])
         .then(responses => Promise.all(responses.map(response => response.json())))
         .then(([chapters, sections]) => {
-            console.log('a', chapters)
             // очистка списка разделов
             chaptersList.textContent='';
             // вывод родительских разделов
@@ -130,9 +127,8 @@ function initialChapterSections () {
             }
             const chapterLine0 = createChapter({'id': 0, 'label': ''});
             chaptersList.append(chapterLine0);
-            console.log('b', sections)
             if (sections.length > 1) {
-                sortingListObjects(sections, 'sorting');
+                sortingListObjects(sections);
             }
             if (sections.length > 0) {
                 // вывод разделов
@@ -214,40 +210,54 @@ function createObjSection (bodyMessage) {
     if (bodyMessage['sorting'] === '') {
         bodyMessage['sorting'] = 999;
     }
-    if (bodyMessage['chapter'] === '') {
-        bodyMessage['label'] = '<без названия>';
-    }
     return bodyMessage;
 }
 
-// Обработка формы создания раздела
+// Обработка формы создания/редактирования раздела
 function handleCreateSectionSubmit(evt) {
-    evt.preventDefault();
-    renderLoading(true, evt.target.querySelector('.popup-edit-anket-button-save'));
+    renderLoading(true, evt.target);
     const data = new FormData(formNewSection);
     const bodyMes = {};
     Array.from(data.entries()).forEach((item) => {
         bodyMes[item[0]] = item[1];
     });
     console.log(bodyMes);
-    bodyMes['ankets_uuid'] = window.localStorage.getItem('select_anket');
     let bodyMessage = createObjSection(bodyMes);
-    Object.keys(bodyMessage).forEach((key) => bodyMessage[key] == '' && delete bodyMessage[key]);
-    console.log(bodyMessage);
-    postCreateSection(bodyMessage)
-        .then(res => checkResponse(res))
-        .then((res) => {
-            initialChapterSections();
-            placeListChapter.textContent = '';
-            closePopup(popupEditSection, popupSelectors);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-        .finally((res) => {
-            renderLoading(false, evt.target.querySelector('.popup-edit-anket-button-save'));
-            formNewSection.reset();
-        })
+    bodyMessage['ankets_uuid'] = window.localStorage.getItem('select_anket');
+    if (popupButtonDelete.classList.contains('field-off')) {
+        Object.keys(bodyMessage).forEach((key) => bodyMessage[key] == '' && delete bodyMessage[key]);
+        console.log(bodyMessage);
+        postCreateSection(bodyMessage)
+            .then(res => checkResponse(res))
+            .then((res) => {
+                initialChapterSections();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally((res) => {
+                renderLoading(false, evt.target);
+                formNewSection.reset();
+                placeListChapter.textContent = '';
+                closePopup(popupEditSection, popupSelectors);
+            })
+    } else {
+        patchSection(popupSectionUuid.value, bodyMessage)
+            .then(res => checkResponse(res))
+            .then((res) => {
+                initialChapterSections();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally((res) => {
+                renderLoading(false, evt.target);
+                formNewSection.reset();
+                placeListChapter.textContent = '';
+                closePopup(popupEditSection, popupSelectors);
+            })
+
+    }
 }
 
 // слушатель чек-бокса блокировки анкеты
@@ -290,7 +300,8 @@ chaptersList.addEventListener('click', function (evt) {
             popupSectionName.value = res.label;
             popupSectionChapter.value = res.chapter;
             popupSectionSorting.value = res.sorting;
-            popupSectionColumns.value = res.columns; 
+            popupSectionColumns.value = res.columns;
+            popupSectionUuid.value = parentLiElement.id;
         })
         .catch((err) => {
             console.log(err);
@@ -302,10 +313,10 @@ popupEditSection.addEventListener('click', function (evt) {
     if (evt.target.classList.contains('popup-close')) {
         closePopup(popupEditSection, popupSelectors);
     }
+    if (evt.target.classList.contains('popup-edit-anket-button-save')) {
+        handleCreateSectionSubmit(evt);
+    }
 })
-
-// Слушатель отправки формы Создать раздел
-popupEditSection.addEventListener('submit', handleCreateSectionSubmit);
 
 initialPage();
 initialChapterSections();
