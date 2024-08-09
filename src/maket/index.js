@@ -1,5 +1,5 @@
 // Импорт файлов
-import { getAnket, patchAnket, getChaptersSections, getSections, postCreateSection } from '/src/scripts/api.js';
+import { getAnket, patchAnket, getChaptersSections, getSections, getAnketSection, postCreateSection } from '/src/scripts/api.js';
 import { checkResponse, sortingListObjects, renderLoading } from '../scripts/utils';
 import { popupSelectors, openPopup, closePopup } from '/src/scripts/modals.js';
 
@@ -31,10 +31,16 @@ const formBlock = document.querySelector('.anket-edit__form-checkbox');
 const chaptersList = document.querySelector('.chapters-container');
 const createSectionButton = document.querySelector('.create-section');
 const popupEditSection = document.querySelector('.popup-edit-anket');
-const popupCreateSection = document.querySelector('.popup-edit-anket-button-save')
 const formNewSection = document.forms.newSection;
 const deleteButton = document.querySelector('.popup-edit-anket-button-delete');
 const placeListChapter = document.querySelector('#chapters-list');
+const popupTitleId = document.querySelector('#section-id');
+const popupTitleText = document.querySelector('#section-title');
+const popupSectionName = document.querySelector('#section-name');
+const popupSectionChapter = document.querySelector('#section-chapter');
+const popupSectionSorting = document.querySelector('#section-sort');
+const popupSectionColumns = document.querySelector('#section-columns');
+
 
 // Функция отрисовки чек-бокса блокировки анкеты
 function renderingBlockButton (data) {
@@ -136,6 +142,7 @@ function initialChapterSections () {
             }
         })
         .catch((err) => {
+            alert('Сервер недоступен, попробуйте позже...')
             console.log(err);
         });
 }
@@ -182,6 +189,7 @@ function createChapterList () {
     getChaptersSections(uuidAnket)
         .then(res => checkResponse(res))
         .then((res) => {
+            placeListChapter.textContent = '';
             // вывод поля Выбрать родительский раздел
             res.forEach((item) => {
                 const elementList = createElementList(item.label);
@@ -247,11 +255,46 @@ editIsOpen.addEventListener('click', handleClickBlockButton);
 
 // открыть модальное окно для создания раздела
 createSectionButton.addEventListener('click', function () {
+    formNewSection.reset();
     openPopup(popupEditSection, popupSelectors);
     if (!deleteButton.classList.contains('field-off')) {
         deleteButton.classList.add('field-off');
     };
     createChapterList();
+})
+
+// открыть модальное окно для редактирования раздела
+chaptersList.addEventListener('click', function (evt) {
+    const targetElement = evt.target;
+    const parentElement = targetElement.closest('.list-item-link-text');
+    if (parentElement === null) {
+        evt.stopPropagation();
+        return
+    };
+    if (deleteButton.classList.contains('field-off')) {
+        deleteButton.classList.remove('field-off');
+    };
+    const parentLiElement = targetElement.closest('.anket-fields-list-item');
+    openPopup(popupEditSection, popupSelectors);
+    createChapterList();
+    getAnketSection(parentLiElement.id)
+        .then(res => checkResponse(res))
+        .then((res) => {
+            console.log(res)
+            popupTitleId.textContent = `${res.id}.`;
+            if (res.chapter) {
+                popupTitleText.textContent = `${res.chapter} | ${res.label}`;
+            } else {
+                popupTitleText.textContent = `${res.label}`;
+            }
+            popupSectionName.value = res.label;
+            popupSectionChapter.value = res.chapter;
+            popupSectionSorting.value = res.sorting;
+            popupSectionColumns.value = res.columns; 
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 })
 
 // закрыть модальное окно

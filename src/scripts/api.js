@@ -90,3 +90,10 @@ export const postCreateSection = (dataSection) => {
         body: JSON.stringify(dataSection)
     })
 }
+
+// get-запрос на загрузку объекта раздела анкеты по uuid
+export const getAnketSection = (uuid_section) => {
+    return fetch(`${baseConfig.baseUrl}section/${uuid_section}`, {
+        headers: baseConfig.headers
+    })
+}

@@ -94,6 +94,7 @@
                     <p class="anket-edit-main__heading">Быстрые формы</p>
                     <button class="anket-edit-main__button-add" title="Добавить новое представление формы">+</button>
                 </div>
+                <p style="color: red">Функционал в разработке</p>
                 <p class="main__content-conteiner-text">
                     Быстрые формы (БФ) - вопросы, объединенные в группы и доступные через меню "Быстрые формы". Предназначенны для оперативного поиска и ввода информации. Все прочие вопросы анкеты в БФ не отражаются. Быстрых форм у анкеты может быть несколько или ни одной.
                 </p>
@@ -105,6 +106,7 @@
                     </p>
                     <button class="anket-edit-main__button-add">+</button>
                 </div>
+                <p style="color: red">Функционал в разработке</p>
                 <div class="main__content-block-accent">
                   <div class="main__content-block-heading-container ">
                     <p class="content-block-title">Инструкция по заполнению</p>
@@ -133,6 +135,7 @@
                     <p class="anket-edit-main__heading">Дополнительная информация</p>
                     <button class="anket-edit-main__button-add">+</button>
                 </div>
+                <p style="color: red">Функционал в разработке</p>
                 <div class="main__content-block-accent">
                   <div class="dop-container">
                     <div class="dop-item">
@@ -236,7 +239,10 @@
   <div class="popup-edit-anket popup-is-animated">
     <form class="popup-form-edit-anket" name="newSection">
       <div class="popup-form-heading-container">
-        <h5 class="popup-form-title"></h5>
+        <h5 class="popup-form-title">
+          <span id="section-id"></span>
+          <span id="section-title"></span>
+        </h5>
         <button type="button" class="popup-edit-anket-close-button popup-close">&#10006;</button>
       </div>
       <fieldset class="popup-fieldset-edit-anket">
@@ -272,6 +278,7 @@
           type="number"
           data-error-message="">
         <label class="form-label" for="dependent">Вопрос, управляющее видимостью этой группы</label>
+        <p style="color: red">Функционал поля в разработке</p>
         <input
           name="dependent"
           class="form-edit-anket-input"
